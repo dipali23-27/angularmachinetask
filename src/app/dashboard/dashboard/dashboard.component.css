@@ -1,0 +1,139 @@
+ 
+ #maindiv {
+    overflow: hidden; 
+    padding: 6% 0%;
+    background: transparent;
+ }
+
+ .homecss {
+    max-width: 100%;
+ }
+
+ .drawer-container {
+    background: transparent;
+ }
+
+ .drawer-content {
+    margin-left: 1px;
+    padding: 0 0% 0 0%;
+    overflow: hidden;
+ }
+ 
+ li {
+     cursor: pointer;
+     border-bottom: 1px solid;
+ }
+ .wrapper {
+    display: flex;
+    align-items: stretch;
+    position: fixed;
+    background: white;
+    box-shadow: 0px 3px 6px 3px rgba(0, 0, 0, 0.06);
+}
+#sidebar {
+    width: 250px;
+    top: 14%;
+    left: 0;
+    height: 76vh;
+    z-index: 999;
+    background: transparent;
+    color: black;
+    transition: all 0.3s;
+    border-right: solid 1px #d1d3d6;
+}
+#sidebar2 {
+    display: none;
+    width: 60px;
+    top: 14%;
+    left: 0;
+    height: 76vh;
+    z-index: 999;
+    background: transparent;
+    color: black;
+    transition: all 0.3s;
+    border-right: solid 1px #d1d3d6;
+}
+#sidedrawer {
+    margin: 16%  0 0 0; 
+}
+
+#sidevar {
+    display: block;
+}
+
+#sidebar {
+    background: transparent;
+    color: black;
+    transition: all 0.3s;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: transparent;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li{
+    outline: 0;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    outline: 0;
+}
+#sidebar ul li a:hover {
+    color: #881228;
+    background: #fff;
+    cursor: pointer;
+}
+
+#sidebar ul li.active > a{
+    
+    color: #fff;
+    background: #881228;
+    cursor: pointer;
+}
+
+#sidenav {
+    text-align: end;
+    cursor: pointer;
+    position: fixed; 
+    width: 16%;
+    border: none;
+    outline: 0;
+}
+
+
+@media (max-width: 768px) {
+  #sidebar{
+      display: none;
+  }
+  #sidebar2{
+      display: block;
+      width: 98px;
+  }
+  #sidedrawer {
+    margin: 64%  0 0 0; 
+}
+}
+
+@media (max-width: 1024px) { 
+    #sidebar{
+        display: none;
+    }
+    #sidebar2{
+        display: block;
+        width: 140px;
+    }
+    #sidedrawer {
+        margin: 20%  0 0 0; 
+    }
+}

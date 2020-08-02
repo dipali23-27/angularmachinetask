@@ -1,0 +1,58 @@
+<!-- login form -->
+<div class="row">
+    <div class="mainlogindiv">
+        <div class="loginHead">
+            <h1>Log In</h1>
+            <div>
+                <form [formGroup]="loginForm" (ngSubmit)="loginuser()">
+                    <div style="padding: 0 14%;">
+                        <!-- username -->
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>UserName</mat-label>
+                            <input matInput placeholder="username" formControlName="UserName">
+                            <mat-error *ngIf="loginForm.controls['UserName'].hasError('required')">
+                                Username is required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <!-- password -->
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Password</mat-label>
+                            <input matInput [type]="!hide ? 'password' : 'text'" placeholder="Password"
+                                formControlName="Password" style="position: absolute;">
+                            <span class="btn-visible" *ngIf="!hide" (click)="showPassword()"
+                                style="cursor:pointer;position: inherit;float: right;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="15" viewBox="0 0 24 15">
+                                    <path fill="#5F6778" fill-rule="nonzero"
+                                        d="M11.996.046C7.412.046 3.256 2.554.188 6.628a.95.95 0 0 0 0 1.133c3.067 4.079 7.224 6.587 11.808 6.587s8.741-2.508 11.809-6.582a.95.95 0 0 0 0-1.134C20.737 2.554 16.58.046 11.996.046zm.33 12.186A5.05 5.05 0 0 1 6.96 6.868c.157-2.513 2.194-4.55 4.706-4.707a5.05 5.05 0 0 1 5.365 5.365c-.162 2.508-2.199 4.544-4.707 4.706zm-.153-2.326A2.713 2.713 0 0 1 9.287 7.02a2.729 2.729 0 0 1 2.538-2.537 2.713 2.713 0 0 1 2.885 2.886 2.729 2.729 0 0 1-2.537 2.537z" />
+                                </svg>
+                            </span>
+                            <span class="btn-visible" *ngIf="hide" (click)="showPassword()"
+                                style="cursor:pointer;position: inherit;float: right;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20">
+                                    <g fill="#5F6778" fill-rule="evenodd">
+                                        <path fill-rule="nonzero"
+                                            d="M11.996 3.046c-4.584 0-8.74 2.508-11.808 6.582a.95.95 0 0 0 0 1.133c3.067 4.079 7.224 6.587 11.808 6.587s8.741-2.508 11.809-6.582a.95.95 0 0 0 0-1.134c-3.068-4.078-7.225-6.586-11.809-6.586zm.33 12.186A5.05 5.05 0 0 1 6.96 9.868c.157-2.513 2.194-4.55 4.706-4.707a5.05 5.05 0 0 1 5.365 5.365c-.162 2.508-2.199 4.544-4.707 4.706zm-.153-2.326a2.713 2.713 0 0 1-2.886-2.886 2.729 2.729 0 0 1 2.538-2.537 2.713 2.713 0 0 1 2.885 2.886 2.729 2.729 0 0 1-2.537 2.537z" />
+                                        <path d="M20.132 0l1.414 1.414L3.868 19.092l-1.414-1.414z" />
+                                    </g>
+                                </svg>
+                            </span>
+                            <mat-error *ngIf="loginForm.controls['Password'].hasError('required')">
+                                Password is required
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <!-- login button -->
+                    <button class="signinbtn">
+                        Login
+                        <span *ngIf="spinner" class="loginspan">
+                            <mat-spinner strokeWidth="3" [diameter]="20" class="spinerlogin">
+                            </mat-spinner>
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

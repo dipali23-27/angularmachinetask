@@ -1,0 +1,117 @@
+<!-- charts -->
+<div class="row" style="padding: 0 2%;">
+    <!-- Pie chart -->
+    <div class="col-lg-6 ">
+        <div class="card">
+            <div class="card-header">
+                Pie Chart
+            </div>
+            <div class="card-body">
+
+                <div style="display: block">
+                    <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasets" [labels]="chartLabels"
+                        [colors]="chartColors" [options]="chartOptions" [legend]="true"
+                        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bar chart -->
+    <div class="col-lg-6 ">
+        <div class="card">
+            <div class="card-header">
+                Bar Chart
+            </div>
+            <div class="card-body">
+                <div style="display: block">
+                    <canvas mdbChart [chartType]="barchartType" [datasets]="barchartDatasets" [labels]="barchartLabels"
+                        [colors]="barchartColors" [options]="barchartOptions" [legend]="true"
+                        (chartHover)="barchartHovered($event)" (chartClick)="barchartClicked($event)">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- User details form -->
+
+<div class="row" style="margin: 2% 0;padding: 0 2%;">
+    <div class="card" style="width: 100%;">
+        <div class="card-header">
+            User Details
+        </div>
+        <div class="card-body">
+            <div style="display: block">
+                <form [formGroup]="PersonalInfoForm" (ngSubmit)="SaveUserInfo(formDirective)" #formDirective="ngForm">
+                    <div style="padding: 0 14%;">
+                        <!-- Name -->
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Name</mat-label>
+                            <input matInput placeholder="Name" formControlName="Name">
+                            <mat-error *ngIf="PersonalInfoForm.controls['Name'].hasError('required')">
+                                Name is required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <!-- Email -->
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Eamil</mat-label>
+                            <input matInput placeholder="Email" formControlName="Email">
+                            <mat-error *ngIf="PersonalInfoForm.controls['Email'].hasError('emailValidation') && 
+                                  !PersonalInfoForm.controls['Email'].hasError('required')">
+                                Please enter a valid Email
+                            </mat-error>
+                            <mat-error *ngIf="PersonalInfoForm.controls['Email'].hasError('required')">
+                                Email is required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <!-- Phone number -->
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Phone number</mat-label>
+                            <input matInput placeholder="Phone number" formControlName="Phone">
+
+                            <mat-error *ngIf="PersonalInfoForm.controls['Phone'].hasError('PhoneValidation') && 
+                                  !PersonalInfoForm.controls['Phone'].hasError('required')">
+                                Please enter a valid phone number
+                            </mat-error>
+                            <mat-error *ngIf="PersonalInfoForm.controls['Phone'].hasError('required')">
+                                phone number is required
+                            </mat-error>
+                        </mat-form-field>
+
+                        <!-- Favorite subjects -->
+                        <mat-form-field style="width: 100%;">
+                            <mat-label>Favorite Subjects</mat-label>
+                            <mat-select formControlName="Subjects" multiple>
+                                <mat-option *ngFor="let subject of subjectlist" [value]="subject">{{subject}}
+                                </mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="PersonalInfoForm.controls['Subjects'].hasError('required')">
+                                please select subject
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <!-- Buttons save or cancel -->
+                    <div class="row" style="padding: 0 14%;">
+                        <button class="savebtn">
+                            Save
+                            <span *ngIf="spinner" style="float: right;margin-left: -98px;margin-top: -2px;">
+                                <mat-spinner strokeWidth="3" [diameter]="20" style="margin-right: 18px;color: white;">
+                                </mat-spinner>
+                            </span>
+                        </button>
+                        <button type="reset" class="savebtn">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

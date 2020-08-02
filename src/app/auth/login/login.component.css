@@ -1,0 +1,44 @@
+
+  .mainlogindiv {
+    text-align:center;
+    width: 50%;
+    margin: 4% auto;
+  }
+
+  .loginHead {
+    padding: 2%;
+    border: solid 1px #bbbbbb;
+  }
+
+  .signinbtn {
+    width: 50%;
+    height: 44px;
+    border-radius: 50px;
+    background: #881228;
+    color: #ffffff;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.35px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+  }
+
+  .loginspan {
+    float: right;
+    margin-left: -98px;
+    margin-top: -2px;
+  }
+
+  .spinerlogin {
+    margin-right: 77px;
+    color: white;
+  }
+ ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: white;
+  }
